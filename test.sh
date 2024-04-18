@@ -8,14 +8,16 @@ mkdir output
 
 FUNC=zkmain
 
-~/zkWasm/target/release/delphinus-cli -k 22 --host standard --function $FUNC --output ./output --param ./params --wasm ./pkg/output.wasm dry-run \
---public  0xbd9dd0e087cc1b2ff5b39a13419ba575811761585fac8afdbc1353bf3151b9a5:bytes-packed \
---private 0x222d1a9a490f0c0a86426d8c3e2a3e6da9bc4a00e74dbf472e005be73f544519:bytes-packed \
-          0x0004006e4c7d3680b8b4789b41143c257084953286b0ce5cd98ca678e07c93b2:bytes-packed \
-          0x188fa8fff3f9feb3e796b7c1018a05df36a26cb26184856869d5d154985a3134:bytes-packed \
-          0x0b411dfb42e25ee8abc69e63d5ac96f73e68505c601601cdcb54c18d1fc9b866:bytes-packed \
-          0x0a3db164ea14effb72987cfd6f3fb53a932bfc7087db2a12dc29e8f96f65fe58:bytes-packed
+RUST_LOG=DEBUG ~/zkWasm/target/release/delphinus-cli -k 22 --host standard --function $FUNC --output ./output --param ./params --wasm ./pkg/output.wasm dry-run \
+--public \
+0x593ab9dc72e5135c1765a733828a008de9e9f9ad1b9d39a61ab401b6addd1d04:bytes-packed \
+--private \
+0x2dd118fa40e3f621fe0ef38bd378a2b848c7722a8f7ff7e7cab028edbf15a70a:bytes-packed \
+0x7912b5c0cb0dd9c23ebd4f162959d7dcdb5e28ba5270bc3aff4eb81db8b0ff13:bytes-packed \
+0x361458fab4920b65fe891584db407a3f7a7fcda2fabd102941f4747dfc82b113:bytes-packed \
+0x027d0e6b2dd79d1a58488f492ac8287cab451711b40ae4082db95c15d3b79b12:bytes-packed \
+0x74aa2f219b6405ad073ad2ebbafc7c861515b8405fc5e8b2fa5b09b47c1c3105:bytes-packed
 
 #~/zkWasm/target/release/delphinus-cli -k 22 --host standard --function $FUNC --output ./output --param ./params --wasm ./pkg/output.wasm single-prove --private 2:i64
 
-~/zkWasm-host-circuits/target/release/zkwasm-host-circuits-prover --input external_host_table.json --opname jubjubsum --output output/ --param params
+#~/zkWasm-host-circuits/target/release/zkwasm-host-circuits-prover --input external_host_table.json --opname jubjubsum --output output/ --param params
